@@ -1,0 +1,73 @@
+<html>
+	<head>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<meta charset = "utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="a1.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<!-- <title >
+			Books4u
+		</title> --> 
+	</head>
+
+	<body style="padding: 20px;">
+			<div class="row container-fluid" style="margin: 10px 50px;">
+				<div class="col-sm-2">
+					<a href="home.html"><img src="images/logo.jpg" style="max-height: 100px;"></a>
+				</div>
+
+				<div class="col-sm-8" style="padding: 50px 0px;">
+					<div>
+						<div class="input-group col-md-12">
+							<input type="text" class="form-control input-lg" placeholder="Search for a book" />
+							<span class="input-group-btn">
+								<button class= "btn btn-primary" type="button">
+									<i class="glyphicon glyphicon-search"></i>
+								</button>
+							</span>	  
+						</div>	    
+					</div>
+				</div>
+
+				<div class="col-sm-1" style="padding: 50px 10px;">
+					<a href="#" class="btn btn-primary" alt="Want to sell a book?">
+						<span class="glyphicon glyphicon-education"></span>Post Ad
+					</a>
+				</div>
+				<div class="dropdown col-sm-1" style="padding: 50px 10px;">
+    <button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown"> 
+    <span class="glyphicon glyphicon-education"></span>{{username}}
+    <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Edit</a></li>
+      <!-- <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li> -->
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="/login">Logout</a></li>
+      <li role="presentation" class="divider"></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">About Us</a></li>    
+    </ul>
+  </div><br>
+  <script>
+$(document).ready(function(){
+    $(".dropdown-toggle").dropdown();
+});
+</script>
+				<!-- <div class="" >
+					<a href="/login" class="btn btn-primary">
+						
+					</a>
+				</div> -->
+
+			</div>
+			<hr color="blue">
+		
+			<div>
+				welcome {{username}}
+			</div>
+			
+		</body>
+
+
+</html>

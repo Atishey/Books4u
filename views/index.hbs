@@ -1,0 +1,54 @@
+<script type="text/javascript">
+		function validateForm() {
+		    var username = document.forms["myForm"]["username"].value;
+		    
+
+		    var email = document.forms["myForm"]["email"].value;
+		    
+		    var password = document.forms["myForm"]["password"].value;
+		    
+
+		    var semester = document.forms["myForm"]["semester"].value;
+		    
+		    var phone = document.forms["myForm"]["phone"].value;
+		    if (username == "" || email == "" || password == "" || semester == "" || phone == "") {
+		        alert("must be filled out");
+		            
+		        return false;
+		}
+}
+</script>
+
+<form action="/" method="post" name="myForm" onsubmit="return validateForm()">
+<img align="center" src="images/logo.jpg" alt="site logo">
+
+
+<table align="center">
+	<tr>
+		<th><label><b></b></label></th>
+		<th><input type="text" placeholder="Enter username" name="username" id="username"></th>
+	</tr>
+	<tr>
+		<th><label><b></b></label></th>
+		<th><input type="text" placeholder="Enter Email" name="email" id="email"></th>
+	</tr>
+	<tr>
+		<th><label><b></b></label></th>
+		<th><input type="password" placeholder="Enter password" name="password" id="password"></th>
+	</tr>
+	
+	<tr>
+		<th><label><b></b></label></th>
+		<th><input type="text" placeholder="Enter semester" name="semester" id="semester"></th>
+	</tr>
+	<tr>
+		<th><label><b></b></label></th>
+		<th><input type="text" placeholder="Enter phone no." name="phone" id="phone"></th>
+	</tr>
+	
+</table>
+<div align="center">
+	<input type="submit" class="button" value="Sign Up" id="sign up">
+</div>
+
+</form>

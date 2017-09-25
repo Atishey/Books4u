@@ -25,7 +25,7 @@ router.get('/home',function(req,res,next){
 });
 
 
-
+//Signup Form
 router.post('/', function(req, res, next){
   
     con.query({
@@ -41,6 +41,7 @@ router.post('/', function(req, res, next){
 });
 module.exports = router;
 
+//Login form
 router.post('/login', function(req, res, next){
     console.log(req.body);
     con.query({
@@ -68,39 +69,6 @@ router.post('/login', function(req, res, next){
       }
       });
   });
-    // function(err,result, fields){
-    //    if (error) {
-    // // console.log("error ocurred",error);
-    //       res.send({
-    //         "code":400,
-    //         "failed":"error ocurred"
-    //       });
-    //   }else{
-    // // console.log('The solution is: ', results);
-    //       if(result.length >0){
-    //         if([0].password == password){
-    //           res.send({
-    //             "code":200,
-    //             "success":"login sucessfull"
-    //               });
-    //         }}
-    //     else{
-    //       res.send({
-    //         "code":204,
-    //         "success":"Email and password does not match"
-    //           });
-    //     }
-    //   }
-    //   // else{
-    //   //   res.send({
-    //   //     "code":204,
-    //   //     "success":"Email does not exits"
-    //   //       });
-    //   // }
     
-    // });
-    
-      
-      
      
   

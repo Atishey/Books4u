@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html >
+<title>
+<head>
+  <meta charset="UTF-8">
+  <title>Books4u</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900'>
+<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Montserrat:400,700'>
+<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+<link rel="stylesheet" type="text/css" href="stylesheets/login.css">
+</head>
+</title>
+
+<body>
+  <script type="text/javascript">
+   
+    function validateForm() {
+        var email = document.forms["myForm"]["Email"].value;
+        var password = document.forms["myForm"]["password"].value;
+        if (email == "" || password == "") {
+            alert("must be filled out");
+                
+            return false;
+      }
+    } 
+    </script>
+    <script src="javascripts/ind.js"></script>
+
+<div class="container">
+  <div class="info">
+    <!-- <img align="left" src="images/logo.jpg" alt="site logo">   -->
+</div>  
+
+    <!-- <span>Made with <i class="fa fa-heart"></i> by <a href="http://andytran.me">Andy Tran</a></span> -->
+  </div>
+  <br>
+<div>
+<div class="form">
+  <center>{{login_status}}</center>
+  <br>
+  <div class="thumbnail"><img src="images/hat.svg"/></div>
+ 
+  <form class="login-form" action="/login1" method="post" name="myForm" onsubmit="return validateForm()"> 
+    <input type="text" placeholder="Email" name="Email" />
+    <input type="password" placeholder="password" name="password" id="password"/>
+    <button class= "btn btn-primary" type="Submit">login</button>
+    <p class="message">Not registered? <a href="/signup">Create an account</a></p>
+  </form>
+</div>
+</div>
+</div>
+
+
+</body>
+</html>

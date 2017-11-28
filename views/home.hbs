@@ -4,13 +4,17 @@
 	<meta charset = "utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="a1.css">
+	<link rel="stylesheet" type="text/css" href="stylesheets/home.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 		<!-- <title >
 			Books4u
 		</title> --> 
+	
 	</head>
+
+
+
 
 	<body style="padding: 20px;">
 			<div class="row container-fluid" style="margin: 10px 50px;">
@@ -32,7 +36,7 @@
 				</div>
 
 				<div class="col-sm-1" style="padding: 50px 10px;">
-					<a href="#" class="btn btn-primary" alt="Want to sell a book?">
+					<a href="pad" class="btn btn-primary" alt="Want to sell a book?">
 						<span class="glyphicon glyphicon-education"></span>Post Ad
 					</a>
 				</div>
@@ -44,7 +48,7 @@
 				    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
 				      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Edit</a></li>
 				      <!-- <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li> -->
-				      <li role="presentation"><a role="menuitem" tabindex="-1" href="/login">Logout</a></li>
+				      <li role="presentation"><a role="menuitem" tabindex="-1" href="/logout">Logout</a></li>
 				      <li role="presentation" class="divider"></li>
 				      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">About Us</a></li>    
 				    </ul>
@@ -59,9 +63,146 @@
 			<hr color="blue">
 		
 			<div>
-				welcome {{username}}
+				<center>Welcome {{username}}</center><br>
 			</div>
 			
+			<div class="main-body">
+		<div class="filter">
+			<section>
+				<div class="FILTER">Filters</div>
+				<div class="BRANCH">Branch<br>
+					<input type="checkbox" name="branch">computer science<br>
+					<input type="checkbox" name="branch">mechanical<br>
+					<input type="checkbox" name="branch">information science<br>
+					<input type="checkbox" name="branch">electronics<br>
+				</div>
+				<div class="SEMESTER">Semester<br>
+						<input type="checkbox" name="semester">1st<br>
+						<input type="checkbox" name="semester">2nd<br>
+						<input type="checkbox" name="semester">3rd<br>
+						<input type="checkbox" name="semester">4th<br>
+						<input type="checkbox" name="semester">5th<br>
+						<input type="checkbox" name="semester">6th<br>
+						<input type="checkbox" name="semester">7th<br>
+						<input type="checkbox" name="semester">8th<br>
+				</div>
+				<div class="SCHEME">Scheme<br>
+					<input type="checkbox" name="scheme">2010<br>
+					<input type="checkbox" name="scheme">2014<br>
+					<input type="checkbox" name="scheme">CBCS<br>
+				</div>
+			</section>
+		</div>
+	</div>
+	<div class="center-body" >
+		 <div class="card">
+  			<img src="img_avatar.png" alt="Book Details" style="width:100%">
+  			<div class="container" href="">
+    			<!-- 	<h4><b>English</b></h4> -->
+    			<p>Subject: {{Subject}}</p>
+    			<p>Price: {{Price}}</p>
+    			<p>Author: {{Author}}</p>
+    			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-shopping-cart"> </span>Buy</button>
+  			</div>
+		</div> 
+	</div>
+		<div class="center-body">
+		 <div class="card">
+  			<img src="img_avatar.png" alt="Book Details" style="width:100%">
+  			<div class="container" href="">
+    			<!-- 	<h4><b>English</b></h4> -->
+    			<p>Subject: {{Subject1}}</p>
+    			<p>Price: {{Price1}}</p>
+    			<p>Author: {{Author1}}</p>
+    			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1"><span class="glyphicon glyphicon-shopping-cart"> </span>Buy</button>
+  			</div>
+		</div> 
+	</div>
+		<div class="center-body">
+		 <div class="card">
+  			<img src="img_avatar.png" alt="Book Details" style="width:100%">
+  			<div class="container">
+    			<!-- 	<h4><b>English</b></h4> -->
+    			<p>Subject: {{Subject2}}</p>
+    			<p>Price: {{Price2}}</p>
+    			<p>Author: {{Author2}}</p>
+    			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2"><span class="glyphicon glyphicon-shopping-cart"> </span>Buy</button>
+  			</div>
+		</div> 
+	</div>
+
+<!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"><font color="#337ab7"><b>Seller information</b></font></h4>
+        </div>
+        <div class="modal-body">
+          	<p>Name: {{Name}}</p>
+			<p>Phone NO: {{Pno}}</p>
+			<p>Email id: {{Email}}</p>
+			<p>Address: {{Address}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal1" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"><font color="#337ab7"><b>Buyer information</b></font></h4>
+        </div>
+        <div class="modal-body">
+          	<p>Name: {{Name1}}</p>
+			<p>Phone NO: {{Pno1}}</p>
+			<p>Email id: {{Email1}}</p>
+			<p>Address: {{Address1}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+ <div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog">
+       <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"><font color="#337ab7"><b>Buyer information</b></font></h4>
+        </div>
+        <div class="modal-body">
+          	<p>Name: {{Name2}}</p>
+			<p>Phone NO: {{Pno2}}</p>
+			<p>Email id: {{Email2}}</p>
+			<p>Address: {{Address2}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+
 		</body>
 
 

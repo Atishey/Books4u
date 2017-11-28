@@ -1,0 +1,704 @@
+<html>
+	<head>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<meta charset = "utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="a1.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    </head>
+
+<style>
+                #loading {
+                    position: fixed;
+                    display: none;
+                    float: left;
+                    /*                    margin-left: 5%;*/
+                    height: 50px;
+                    width: 50px;
+                    background-image: url(http://www.clankart.com/comp_images/loading_with_fade.gif);
+                    background-repeat: no-repeat;
+                    left: 47%;
+                    top: 39%;
+                    z-index: 1000000;
+                    background-size: 50px 50px;
+                }
+                
+                #loading1 {
+                    /*                    position: fixed;*/
+                    display: none;
+                    float: left;
+                    margin-left: 5%;
+                    height: 50px;
+                    width: 50px;
+                    background-image: url(http://www.clankart.com/comp_images/loading_with_fade.gif);
+                    background-repeat: no-repeat;
+                    /*                    left: 47%;*/
+                    /*                    top: 39%;*/
+                    z-index: 1000000;
+                    background-size: 50px 50px;
+                }
+                
+                .black-out {
+                    position: fixed;
+                    display: none;
+                    background-color: #fff;
+                    opacity: 0.7;
+                    width: 100%;
+                    height: 100%;
+                    overflow: hidden;
+                    z-index: 100;
+                }
+
+            </style>
+
+
+
+
+	<body style="padding: 20px;">
+			<div class="row container-fluid" style="margin: 10px 50px;">
+				<div class="col-sm-18">
+					<a href="home"><img src="images/logo.jpg" style="max-height: 100px;"></a>
+					<hr color="blue">
+				</div>
+	 <!-- Register Form -->
+                    <div class="user_register">
+                        <form action="" id="add-college-form" method="post">
+                            <label>College Name</label>
+                            <input type="text" id="add-college-clg" name="add-college" onchange="validate_add_clg();" />
+                            <div class="error-in" id="err-add-clg"></div>
+                            <br />
+
+                            <div id="add-college-city-container-s-m">
+                                <label id="phone-label">City</label>
+                                <input type="text" id="add-college-city" name="add-city" maxlength="10" onchange="validate_add_city();" />
+                                <div class="error-in" id="err-add-city"></div>
+                                <br />
+                            </div>
+
+                            <div id="add-college-state-container-s-m">
+                                <label id="city-label">State</label>
+                                <input type="text" id="add-college-state" name="add-state" maxlength="30" onchange="validate_add_state();" />
+                                <div class="error-in" id="err-add-state">Please Enter State</div>
+                                <br />
+                            </div>
+
+                            <label>Email Address</label>
+                            <input type="email" id="add-college-email" name="add-email" placeholder="Optional" onchange="validate_add_email();" />
+                            <div class="error-in" id="err-add-invalid">Invalid Email ID</div>
+                            <br />
+
+                            <div class="action_btns">
+                                <div class="one_half"><a href="#" class="btn modal_close_add_college"><i class="fa fa-angle-double-left"></i> Cancel</a></div>
+                                <!--                                            <div class="one_half last" id="one_half_last_register"><a href="#" class="btn btn_red">Register</a></div>-->
+                                <div class="one_half last" id="one_half_last_register">
+                                    <input type="button" id="add-college-btn" value="Add College" onclick="addcollege();" style="width:100%; height:100%; float:left;line-height:1.6; border:0px;" class="btn btn_red" id="one_half_last_register">
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+
+                </section>
+            </div>
+
+             <form action="" id="postad-form" method="POST" enctype="multipart/form-data">
+                                <div class="step">
+
+                                    <h2 class='steps'>Step 1</h2>
+                                    <div class="one-line-container">
+
+                                        <div class="title-class">
+                                            <h3 id="category-h3">I want to</h3>
+                                        </div>
+                                        <!-- end of .title-class-->
+                                        <div class="fill-area" id="fill-area-input">
+                                            <span class="one-radio"><input type="radio" name="want" value="sell" checked="checked"><span class="radio-hint">Sell</span></span>
+                                            <input type="radio" name="want" value="buy"><span class="radio-hint">Buy</span>
+                                        </div>
+                                        <!-- end of .fill-area-->
+
+                                    </div>
+                                    <!-- end of .one-line-container-->
+
+                                    <div id="ad-title-container">
+
+                                        <div class="title-class">
+                                            <h3 id="ad-title-h3">Ad Title</h3>
+                                        </div>
+                                        <!-- end of .title-class-->
+                                        <div class="fill-area">
+                                            <input type='text' name='postTitle1' maxlength='70' id='postTitle1' required='required' style="color: #353535; padding: 0% 2%; font-size:14px; height:35px; margin-top:2px; border:1px solid #BDBDBD; border-radius:3px;" onchange="validate_title();" />
+                                            <div class="error-msg" id="ad-title-err">Please enter a Title</div>
+                                            <div id='titleCounter' style='float:right;margin-right:15px;color:darkgrey;'>
+                                            </div>
+                                            <!--end of titleCounter-->
+
+                                        </div>
+                                        <!-- end of .fill-area-->
+
+                                    </div>
+                                    <!-- end of #ad-title-container-->
+
+                                    <div class="one-line-container" id="category-line-container">
+
+                                        <div class="title-class">
+                                            <h3 id="category-h3">Category</h3>
+                                        </div>
+                                        <!-- end of .title-class-->
+                                        <div class="fill-area">
+                                            <select id='selectCat' name='selectCat' onChange="populate(); validate_cat();" style=''>
+                                                <option disabled selected value='0'>Select Category</option>
+                                                <option value='book'>Books</option>
+                                                <option value='paper'>Old Exam Papers</option>
+                                                <option value='tool'>Tools</option>
+                                                <option value='notes'>Notes</option>
+                                                <option value='project'>Projects</option>
+                                                <option value='other'>Others</option>
+                                            </select>
+                                            <div class="error-msg" id="ad-cat-err">Please select Category</div>
+                                        </div>
+                                        <!-- end of .fill-area-->
+
+                                    </div>
+                                    <!-- end of .one-line-container-->
+
+                                    <div class="one-line-container" id="college-line-container">
+
+                                        <input type="hidden" name="adFor" id="adFor" />
+                                        <div class="title-class">
+                                            <h3 id="category-h3">For</h3>
+                                        </div>
+                                        <!-- end of .title-class-->
+                                        <div class="fill-area">
+                                            <div class="city-college city-college-city-css" onclick="show_city_college_city();">City</div>
+
+                                            <div class="city-college city-college-college-css" onclick="show_city_college_college();">College</div>
+                                            
+                                            <div class="error-msg" id="ad-city-clg-err" style="">Please select this Field</div>
+                                        </div>
+
+                                        <div class="fill-area city-college-city" style="">
+                                            <input type="text" id='selectCityFor' placeholder="Select City" name='selectCityFor' class="city-suggestion" onfocusout="validate_city_input(this, this.value); $('.city-suggetion-post').hide();" onkeyup="shortlist_city_post(this, this.value, event);" />
+                                            <!--                                            <div id="no-results2"></div>-->
+                                            <ul id="city-list-post" class="city-list-post" style="">
+                                                <li class="city-list-li-post"></li>
+                                            </ul>
+                                            <div class="error-msg error-city-for" id="ad-city-err">Please select City</div>
+                                        </div>
+
+                                        <div class="fill-area city-college-college" style="">
+                                            <input type="text" id='selectClg' placeholder="Select College" name='selectClg' class="college-suggestion" onfocusout="validate_college_input(this, this.value); $('.college-suggetion-post').hide();" onkeyup="shortlist_college_post(this, this.value, event);" />
+                                            <!--                                            <div id="no-results2"></div>-->
+                                            <ul id="college-list-post" class="college-list-post" style="">
+                                                <li class="college-list-li-post"></li>
+                                            </ul>
+                                            <div class="error-msg error-clg" id="ad-clg-err">Please select College</div>
+                                        </div>
+                                        <div id="phone-hint">
+                                            <p>Select from over 25000+ Colleges</p>
+                                        </div>
+                                        <!-- end of .fill-area-->
+
+                                    </div>
+                                    <!-- end of .one-line-container-->
+
+                                    <div class="one-line-container" id="course-line-container">
+
+                                        <div class="title-class">
+                                            <h3 id="category-h3">For Course</h3>
+                                        </div>
+                                        <!-- end of .title-class-->
+                                        <div class="fill-area">
+                                            <input type="text" id='selectCrs' name='selectCrs' class="course-suggestion" onfocusout="populate_branch(); validate_course_input(this, this.value);" />
+                                            <div class="error-msg" id="ad-crs-err">Please select Course</div>
+                                        </div>
+                                        <!-- end of .fill-area-->
+
+                                    </div>
+                                    <!-- end of .one-line-container-->
+
+                                    <div class="one-line-container" id="branch-line-container">
+
+                                        <div class="title-class">
+                                            <h3 id="category-h3">For Branch</h3>
+                                        </div>
+                                        <!-- end of .title-class-->
+                                        <div class="fill-area">
+                                            <input type="text" id='selectBranch' disabled name='selectBranch' class="branch-suggestion" onfocusout="validate_branch_input(this, this.value, $('#selectCrs').val()); $('.branch-suggetion-post').hide();" />
+                                            <ul id="branch-list-post" class="branch-list-post" style="">
+                                                <li class="branch-list-li-post"></li>
+                                            </ul>
+                                            <div class="error-msg error-bran" id="ad-bran-err">Please select Branch</div>
+                                        </div>
+                                        <!-- end of .fill-area-->
+
+                                    </div>
+                                    <!-- end of .one-line-container-->
+
+                                    <div class="one-line-container" id="semester-line-container">
+
+                                        <div class="title-class">
+                                            <h3 id="category-h3">For Semester</h3>
+                                        </div>
+                                        <!-- end of .title-class-->
+                                        <div class="fill-area">
+                                            <select id='selectSem' name='selectSem' style='' onchange="validate_sem();">
+                                                <option disabled selected value='0'>Select Semester</option>
+                                                <option value='all'>All</option>
+                                                                                                    <option value="sem1">
+                                                        Semester 1                                                    </option>
+                                                                                                        <option value="sem2">
+                                                        Semester 2                                                    </option>
+                                                                                                        <option value="sem3">
+                                                        Semester 3                                                    </option>
+                                                                                                        <option value="sem4">
+                                                        Semester 4                                                    </option>
+                                                                                                        <option value="sem5">
+                                                        Semester 5                                                    </option>
+                                                                                                        <option value="sem6">
+                                                        Semester 6                                                    </option>
+                                                                                                        <option value="sem7">
+                                                        Semester 7                                                    </option>
+                                                                                                        <option value="sem8">
+                                                        Semester 8                                                    </option>
+                                                                                                        <option value="sem9">
+                                                        Semester 9                                                    </option>
+                                                                                                        <option value="sem10">
+                                                        Semester 10                                                    </option>
+                                                                                                        <option value="sem11">
+                                                        Semester 11                                                    </option>
+                                                                                                        <option value="sem12">
+                                                        Semester 12                                                    </option>
+                                                                                                    <option value="other">Others</option>
+                                            </select>
+                                            <div class="error-msg" id="ad-sem-err">Please select Semester</div>
+                                            <div id="subject-hint-m">
+                                                <div class="error-msg-hint" id="ad-sub-hint">
+                                                    <center><span class="subject-hint">Please <b>AVOID</b> using <b>ABBREVATIONS</b> and write <b>FULL</b> Subject Name.</span></center>
+                                                </div>
+                                                <div class="error-msg-hint" id="ad-sub-hint-img"><img src="http://www.clankart.com/comp_images/down-arrow1.png" alt=""></div>
+                                            </div>
+                                        </div>
+                                        <!-- end of .fill-area-->
+
+                                    </div>
+                                    <!-- end of .one-line-container-->
+
+                                    <div class="one-line-container" id="subject-line-container">
+
+                                        <div class="title-class">
+                                            <h3 id="category-h3">Subject</h3>
+                                        </div>
+                                        <!-- end of .title-class-->
+                                        <div class="fill-area">
+                                            <input type="text" class="form-control" id="postSubject" name="postSubject" maxlength="100" style="" onchange="validate_sub();">
+                                            <div class="error-msg" id="ad-sub-err">Please enter Subject</div>
+                                            <div id="subject-hint-c">
+                                                <div class="error-msg-hint" id="ad-sub-hint-img"><img src="http://www.clankart.com/comp_images/left-arrow1.png" alt=""></div>
+                                                <div class="error-msg-hint" id="ad-sub-hint">
+                                                    <center><span class="subject-hint">Please <b>AVOID</b> using <b>ABBREVATIONS</b> and write <b>FULL</b> Subject Name.</span></center>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- end of .fill-area-->
+
+                                    </div>
+                                    <!-- end of .one-line-container-->
+
+                                    <div class="one-line-container" id="exam-line-container">
+
+                                        <div class="title-class">
+                                            <h3 id="category-h3">Exam Type</h3>
+                                        </div>
+                                        <!-- end of .title-class-->
+                                        <div class="fill-area">
+                                            <select id='examType' name='examType' style='' onchange="validate_exam();">
+                                                <option disabled selected value='0'>Select Exam Type</option>
+                                                <option value='regular'>Regular</option>
+                                                <div class="error-msg">Please enter a title</div>
+                                                <option value='reappear'>Reappear</option>
+                                            </select>
+                                            <div class="error-msg" id="ad-exam-err">Please select Exam Type</div>
+
+                                        </div>
+                                        <!-- end of .fill-area-->
+
+                                    </div>
+                                    <!-- end of .one-line-container-->
+
+                                    <div class="one-line-container" id="price-line-container">
+
+                                        <div class="title-class">
+                                            <h3 id="category-h3">Your Price (&#8377;)</h3>
+                                        </div>
+                                        <!-- end of .title-class-->
+                                        <div class="fill-area">
+                                            <input type='number' onchange="validate_price(this, this.value);" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type="number" name='price' id='price' maxlength='5' style='' onkeyup="free2();" onchange="validate_price1();" />
+                                            <div id="free-container-m">
+                                                <span class="span-or">or</span>
+                                                <input type="checkbox" style="" name="priceFree" value="0" id="free" onclick="free1();"><span class="span-free">Free</span>
+                                            </div>
+                                            <div class="error-msg" id="ad-price-err">Please enter Your Price</div>
+                                        </div>
+                                        <!-- end of .fill-area-->
+
+                                    </div>
+                                    <!-- end of .one-line-container-->
+
+                                    <div class="one-line-container" id="optional-line-container" onclick="toggle_optional_details();">
+
+                                        <div class="title-class title-class-not-for-m">
+
+                                        </div>
+                                        <!-- end of .title-class-->
+                                        <div class="fill-area">
+                                            <h3 class="optional-plus-minus" id="category-h3" style="">Optional Details +</h3>
+                                        </div>
+                                        <!-- end of .fill-area-->
+
+                                    </div>
+                                    <!-- end of .one-line-container-->
+
+                                    <div class="optional-details-four" style="display:none;">
+
+                                        <div class="one-line-container" id="author-line-container">
+
+                                            <div class="title-class">
+                                                <h3 id="category-h3">Author</h3>
+                                            </div>
+                                            <!-- end of .title-class-->
+                                            <div class="fill-area">
+                                                <input type='text' name='author' id='author' maxlength='50' placeholder='Optional' style='' />
+                                                <!--                                            onchange="validate_auth();"<div class="error-msg" id="ad-auth-err">Please enter Author</div>-->
+                                            </div>
+                                            <!-- end of .fill-area-->
+
+                                        </div>
+                                        <!-- end of .one-line-container-->
+
+                                        <div class="one-line-container" id="mrp-line-container">
+
+                                            <div class="title-class">
+                                                <h3 id="category-h3">MRP (&#8377;)</h3>
+                                            </div>
+                                            <!-- end of .title-class-->
+                                            <div class="fill-area">
+                                                <input type='number' onchange="validate_mrp(this, this.value);" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type="number" name='mrp' id='mrp' maxlength='10' placeholder='Optional' style='' />
+                                                <!--                                             onchange="validate_mrp();"<div class="error-msg" id="ad-mrp-err">Please enter MRP</div>-->
+                                                <div class="error-msg" id="ad-mrp-err">Please enter MRP</div>
+                                            </div>
+                                            <!-- end of .fill-area-->
+
+                                        </div>
+                                        <!-- end of .one-line-container-->
+
+                                        <div class="one-line-container" id="year-line-container">
+
+                                            <div class="title-class">
+                                                <h3 id="category-h3">Year</h3>
+                                            </div>
+                                            <!--<div class="error-msg">Please enter a title</div> end of .title-class-->
+                                            <div class="fill-area">
+                                                <input type='number' oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type="number" name='year' id='year' maxlength='4' placeholder='Optional' style='' />
+                                                <!--                                             onchange="validate_year();"<div class="error-msg" id="ad-year-err">Please enter Year</div>-->
+
+                                            </div>
+                                            <!-- end of .fill-area-->
+
+                                        </div>
+                                        <!-- end of .one-line-container-->
+
+                                        <div id="ad-desc-container">
+
+                                            <div class="title-class">
+                                                <h3 id="category-h3">Ad Description</h3>
+                                            </div>
+                                            <!-- end of .title-class-->
+                                            <div class="fill-area">
+                                                <textarea name='postDescription' maxlength='500' id="postDescription" style='' placeholder="Optional" onchange="validate_desc();"></textarea>
+                                                <div class="error-msg" id="ad-desc-err">Please enter Ad Description</div>
+                                                <br />
+                                            </div>
+                                            <div id='titleCounterDesc' style='float:right;margin-right:87px;margin-top:8px;color:darkgrey;'>
+                                            </div>
+                                            <!--end of titleCounter-->
+                                            <!-- end of .fill-area-->
+
+                                        </div>
+                                        <!-- end of #ad-desc-container-->
+
+                                    </div>
+                                    <!-- end of #optional-details-four-->
+
+                                </div>
+                                <!-- end of .step-->
+
+                                <div class="step">
+
+                                    <h2 class='steps'>Step 2</h2>
+
+                                    <div class="one-line-container">
+
+                                        <div class="title-class">
+                                            <h3 id="category-h3">Condition</h3>
+                                        </div>
+                                        <!-- end of .title-class-->
+                                        <div class="fill-area">
+                                            <span class="one-radio"><input type="radio" name="condition" checked="checked" value="new"><span class="radio-label">New</span></span>
+                                            <input type="radio" name="condition" value="used"><span class="radio-label">Used</span>
+                                        </div>
+                                        <!-- end of .fill-area-->
+
+                                    </div>
+                                    <!-- end of .one-line-container-->
+
+                                    <div class="one-line-container">
+
+                                        <div class="title-class" id="upload-title">
+                                            <h3 id="category-h3">Upload Images</h3>
+                                        </div>
+                                        <!-- end of .title-class-->
+                                        <!--
+                                        <div id="loading-preview">
+                                            <div id="loading-preview-text">Uploading</div>
+                                            <div id="loading-preview-image">
+                                                <img src="http://www.clankart.com/comp_images/loading_with_fade.gif" alt="">
+                                            </div>
+                                        </div>
+
+
+<div class="fill-area" id="upload-link">
+                                            <div class="for-image-selector">
+                                                <div id="rotate-container1" class="rotate-container" onclick="rotateImg1();">
+                                                    <img id="rotate1" class="rotate" src="http://www.clankart.com/comp_images/rotate.svg" style="" alt="">
+                                                </div>
+                                                <label for="aa1">
+                                                   <input id="jpeg_encode_quality" size='3' readonly='true' type="hidden" value="80" />
+                                                    <img src="http://www.clankart.com/comp_images/upload1.png" alt="" width="100px" height="90px" id="img-preview1">
+                                                    <div id="img-number1-div" class="img-number-div"><span class="img-number" id="img-number1" style="">1</span></div>
+                                                </label>
+                                                <input type='file' accept="image/jpeg, image/x-png" name='attachPhoto1' id="aa1" class="aa" onchange="ValidateFileUpload1(this);" style='' />
+                                                <!--                                                <p style='margin-left:15px;margin-top:10px;margin-bottom:10px;color:darkgrey;font-weight:normal;'>(You can add more images from your account)</p>-->
+                                                <p class="remove-p" onclick="removePreview1();">Remove</p>
+                                            </div>
+                                            <!-- end of .for-image-selector-->
+
+                                            <div class="for-image-selector">
+                                                <div id="rotate-container2" class="rotate-container" onclick="rotateImg2();">
+                                                    <img id="rotate2" class="rotate" src="http://www.clankart.com/comp_images/rotate.svg" style="" alt="">
+                                                </div>
+                                                <label for="aa2">
+                                                    <img src="http://www.clankart.com/comp_images/upload1.png" alt="" width="100px" height="90px" id="img-preview2">
+                                                    <div id="img-number2-div" class="img-number-div"><span class="img-number" id="img-number2" style="">2</span></div>
+                                                </label>
+                                                <input type='file' accept="image/jpeg, image/x-png" name='attachPhoto2' id="aa2" class="aa" onchange="ValidateFileUpload2(this);" style='' />
+                                                <p class="remove-p" onclick="removePreview2();">Remove</p>
+                                            </div>
+                                            <!-- end of .for-image-selector-->
+
+                                            <div id="image-selector-two-line-m">
+                                                <div class="for-image-selector">
+                                                    <div id="rotate-container3" class="rotate-container" onclick="rotateImg3();">
+                                                        <img id="rotate3" class="rotate" src="http://www.clankart.com/comp_images/rotate.svg" style="" alt="">
+                                                    </div>
+                                                    <label for="aa3">
+                                                        <img src="http://www.clankart.com/comp_images/upload1.png" alt="" width="100px" height="90px" id="img-preview3">
+                                                        <div id="img-number3-div" class="img-number-div"><span class="img-number" id="img-number3" style="">3</span></div>
+                                                    </label>
+                                                    <input type='file' accept="image/jpeg, image/x-png" name='attachPhoto3' id="aa3" class="aa" onchange="ValidateFileUpload3(this);" style='' />
+                                                    <p class="remove-p" onclick="removePreview3();">Remove</p>
+                                                </div>
+                                                <!-- end of .for-image-selector-->
+
+                                                <div class="for-image-selector">
+                                                    <div id="rotate-container4" class="rotate-container" onclick="rotateImg4();">
+                                                        <img id="rotate4" class="rotate" src="http://www.clankart.com/comp_images/rotate.svg" style="" alt="">
+                                                    </div>
+                                                    <label for="aa4">
+                                                        <img src="http://www.clankart.com/comp_images/upload1.png" alt="" width="100px" height="90px" id="img-preview4">
+                                                        <div id="img-number4-div" class="img-number-div"><span class="img-number" id="img-number4" style="">4</span></div>
+                                                    </label>
+                                                    <input type='file' accept="image/jpeg, image/x-png" name='attachPhoto4' id="aa4" class="aa" onchange="ValidateFileUpload4(this);" style='' />
+                                                    <p class="remove-p" onclick="removePreview4();">Remove</p>
+                                                </div>
+                                                <!-- end of .for-image-selector-->
+                                            </div>
+                                            <!-- end of #image-selector-two-line-m-->
+
+                                            <div class="error-msg" id="max-size-err" style="width:60%;">Please upload image of size less than 10 MB</div>
+                                            <div class="error-msg" id="img-type-err">Please upload only jpeg or png file</div>
+                                            <div class="error-msg" id="img-none-err">Please upload a photograph</div>
+                                            <div class="error-msg no-image" id="img-none-err-1">Please upload Image 1</div>
+                                            <div class="error-msg no-image" id="img-none-err-2">Please upload Image 2</div>
+                                            <div class="error-msg no-image" id="img-none-err-3">Please upload Image 3</div>
+                                            <div class="error-msg no-image" id="img-none-err-4">Please upload Image 4</div>
+                                        </div>
+                                        <!-- end of .fill-area-->
+
+                                    </div>
+                                    <!-- end of .one-line-container-->
+
+                                </div>
+                                <!-- end of .step-->
+
+                                <div class="step" id="about-you-step">
+
+                                    <h2 class='steps'>Your Contact Information</h2>
+
+                                    <div class="one-line-container" id="own-type-line-container">
+
+                                        <div class="title-class">
+                                            <h3 id="category-h3">You Are</h3>
+                                        </div>
+                                        <!-- end of .title-class-->
+                                        <div class="fill-area" onclick="indi_deal(); validate_own_type();">
+                                            <div id="type-radio">
+                                                <span class="one-radio"><input type="radio" class="not-radio" name="indi_deal" id="indi_deal" value="dealer"  ><span class="radio-label">Dealer</span></span>
+                                                <input type="radio" name="indi_deal" id="indi_deal1" value="individual"  ><span class="radio-label">Individual</span>
+                                            </div>
+                                            <div class="error-msg" id="ad-own-type-err">Please select this field</div>
+                                        </div>
+                                        <!-- end of .fill-area-->
+
+                                    </div>
+                                    <!-- end of .one-line-container-->
+
+                                    <div class="one-line-container">
+
+                                        <div class="title-class">
+                                            <h3 id="category-h3">Name</h3>
+                                        </div>
+                                        <!-- end of .title-class-->
+                                        <div class="fill-area">
+                                            <input type='text' name='postUserName' id="postUserName" class='field' value="" maxlength="50" onchange="validate_own_name();" />
+                                            <div class="error-msg" id="ad-own-name-err">Please enter your Name</div>
+                                        </div>
+                                        <!-- end of .fill-area-->
+
+                                    </div>
+                                    <!-- end of .one-line-container-->
+
+                                    <div class="one-line-container">
+
+                                        <div class="title-class">
+                                            <h3 id="category-h3">Email</h3>
+                                        </div>
+                                        <!-- end of .title-class-->
+                                        <div class="fill-area">
+                                            <input type='text' name='postUserEmail' id="postUserEmail" class='field' disabled style='\' value="" maxlength="50" onchange="validate_own_email();" />
+                                            <div class="error-msg" id="ad-own-email-err">Please enter your Email</div>
+                                        </div>
+                                        <!-- end of .fill-area-->
+
+                                    </div>
+                                    <!-- end of .one-line-container-->
+
+                                    <div class="one-line-container">
+
+                                        <div class="title-class">
+                                            <h3 id="category-h3">Phone</h3>
+                                        </div>
+                                        <!-- end of .title-class-->
+                                        <div class="fill-area" style="position: relative;">
+                                            <div id="isd">+91</div>
+                                            <input type='number' oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type="number" name='postUserPhone' id="postUserPhone" class='field' style='' maxlength="10" onblur="validate_own_phone();" value="" />
+                                            <div class="error-msg" id="ad-own-phone-err">Please enter your Phone number</div>
+                                            <div class="error-msg" id="ad-own-phone-no-err">Please enter valid Phone number</div>
+                                        </div>
+                                        <!-- end of .fill-area-->
+                                        <div id="phone-hint">
+                                            <p>Items with Phone Number sell faster!</p>
+                                        </div>
+
+                                    </div>
+                                    <!-- end of .one-line-container-->
+
+                                    <div class="one-line-container" id="own-city-line-container">
+
+                                        <div class="title-class">
+                                            <h3 id="category-h3">City</h3>
+                                        </div>
+                                        <!-- end of .title-class-->
+                                        <div class="fill-area">
+                                            <input type='text' name='postUserCity' id="postUserCity" class='field' style='' maxlength="20" onchange="validate_own_city();" value="" />
+                                            <div class="error-msg" id="ad-own-city-err">Please enter your City</div>
+                                        </div>
+                                        <!-- end of .fill-area-->
+
+                                    </div>
+                                    <!-- end of .one-line-container-->
+
+                                    <div class="one-line-container" id="own-address-line-container">
+
+                                        <div class="title-class">
+                                            <h3 id="category-h3">Business Name</h3>
+                                        </div>
+                                        <!-- end of .title-class-->
+                                        <div class="fill-area">
+                                            <input type='text' name='postUserAddress' id="postUserAddress" class='field' style='' maxlength="200" onchange="validate_own_addr();" value="" />
+                                            <div class="error-msg" id="ad-own-addr-err">Please enter your Business Name</div>
+                                        </div>
+                                        <!-- end of .fill-area-->
+
+                                    </div>
+                                    <!-- end of .one-line-container-->
+
+                                    <div class="one-line-container" id="own-college-line-container">
+
+                                        <div class="title-class">
+                                            <h3 id="category-h3">College</h3>
+                                        </div>
+                                        <!-- end of .title-class-->
+                                        <div class="fill-area">
+                                            <input type="text" id='postUserCollege' name='postUserCollege' value="" class="college-suggestion" onfocusout="validate_college_input(this, this.value); $('.college-suggetion-post').hide();" onkeyup="shortlist_college_post(this, this.value, event);" />
+                                            <ul id="college-list-post-user" class="college-list-post" style="">
+                                                <li class="college-list-li-post"></li>
+                                            </ul>
+                                            <div class="error-msg error-clg" id="ad-own-clg-err">Please select your College</div>
+                                        </div>
+                                        <!-- end of .fill-area-->
+                                        <div id="phone-hint">
+                                            <p>Search from over 25000+ Colleges</p>
+                                        </div>
+
+                                    </div>
+                                    <!-- end of .one-line-container-->
+
+                                </div>
+                                <!-- end of .step-->
+
+                                <div id="agree-container">
+                                    <p id="agree">By clicking "Post", you agree to our <a target="_blank" href="http://www.clankart.com/terms" style="color: blue;">Terms of Use</a>
+                                        <!--                                     and <a target="_blank" href="" style="color: blue;">Privacy Policy</a></p>-->
+                                </div>
+                                <!-- end of #agree-container-->
+
+                                <div class="step">
+                                    <div id="post-ad-container-both">
+                                        <div id="post-ad-both">
+                                            <!--                                            <a href="http://www.clankart.com/post-ad"><h3>Post</h3></a>-->
+                                            <input type="button" id="post-btn" value="Post" onclick="validate_ad();">
+                                        </div>
+                                        <!-- end of #post-ad-both-->
+                                    </div>
+                                    <div id="loading1"></div>
+                                    <!-- end of #post-ad-container-both-->
+                                </div>
+                                <!-- end of .step-->
+
+                            </form>
+                        </div>
+                        <!-- end of #ad-box-container-->
+
+                    </div>
+                    <!-- end of #main-body-75-->
+
+                </div>
+                <!-- end of #main-body-container-->
+
+            </div>
+            <!-- end of .wrapper-->
+
+            <div class="footerContainer">
